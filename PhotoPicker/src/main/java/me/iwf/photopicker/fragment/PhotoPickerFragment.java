@@ -74,7 +74,7 @@ public class PhotoPickerFragment extends Fragment {
   private RequestManager mGlideRequestManager;
 
   public static PhotoPickerFragment newInstance(boolean showCamera, boolean showGif,
-      boolean previewEnable, int column, int maxCount, ArrayList<String> originalPhotos) {
+      boolean previewEnable, int column, int maxCount, ArrayList<String> originalPhotos)  {
     Bundle args = new Bundle();
     args.putBoolean(EXTRA_CAMERA, showCamera);
     args.putBoolean(EXTRA_GIF, showGif);
