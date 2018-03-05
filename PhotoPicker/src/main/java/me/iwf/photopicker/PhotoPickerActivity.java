@@ -101,11 +101,13 @@ public class PhotoPickerActivity extends AppCompatActivity {
               LENGTH_LONG).show();
           return false;
         }
-        if(maxCount > 1){
-          menuDoneItem.setTitle(getString(R.string.__picker_done_with_count, selectedItemCount, maxCount));
-        }else {
-          menuDoneItem.setTitle(getString(R.string.__picker_done));
-        }
+
+        menuDoneItem.setTitle(getString(R.string.__picker_done));
+//        if(maxCount > 1){
+//          menuDoneItem.setTitle(getString(R.string.__picker_done_with_count, selectedItemCount, maxCount));
+//        }else {
+//          menuDoneItem.setTitle(getString(R.string.__picker_done));
+//        }
         return true;
       }
     });
@@ -119,11 +121,12 @@ public class PhotoPickerActivity extends AppCompatActivity {
         List<String> photos = pickerFragment.getPhotoGridAdapter().getSelectedPhotos();
         int size = photos == null ? 0 : photos.size();
         menuDoneItem.setEnabled(size > 0);
-        if(maxCount > 1){
-          menuDoneItem.setTitle(getString(R.string.__picker_done_with_count, size, maxCount));
-        }else {
-          menuDoneItem.setTitle(getString(R.string.__picker_done));
-        }
+        menuDoneItem.setTitle(getString(R.string.__picker_done));
+//        if(maxCount > 1){
+//          menuDoneItem.setTitle(getString(R.string.__picker_done_with_count, size, maxCount));
+//        }else {
+//          menuDoneItem.setTitle(getString(R.string.__picker_done));
+//        }
 
       }else if(imagePagerFragment != null && imagePagerFragment.isResumed()){
         //预览界面 完成总是可点的，没选就把默认当前图片
@@ -163,8 +166,9 @@ public class PhotoPickerActivity extends AppCompatActivity {
       menuDoneItem = menu.findItem(R.id.done);
       if (originalPhotos != null && originalPhotos.size() > 0) {
         menuDoneItem.setEnabled(true);
-        menuDoneItem.setTitle(
-                getString(R.string.__picker_done_with_count, originalPhotos.size(), maxCount));
+        menuDoneItem.setTitle(R.string.__picker_done);
+//        menuDoneItem.setTitle(
+//                getString(R.string.__picker_done_with_count, originalPhotos.size(), maxCount));
       } else {
         menuDoneItem.setEnabled(false);
       }
