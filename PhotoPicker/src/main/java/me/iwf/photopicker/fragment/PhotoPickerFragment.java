@@ -114,11 +114,13 @@ public class PhotoPickerFragment extends Fragment {
     MediaStoreHelper.getPhotoDirs(getActivity(), mediaStoreArgs,
         new MediaStoreHelper.PhotosResultCallback() {
           @Override public void onResultCallback(List<PhotoDirectory> dirs) {
-            directories.clear();
-            directories.addAll(dirs);
-            photoGridAdapter.notifyDataSetChanged();
-            listAdapter.notifyDataSetChanged();
-            adjustHeight();
+            if (dirs!=null && dirs.size() != directories.size()) {
+              directories.clear();
+              directories.addAll(dirs);
+              photoGridAdapter.notifyDataSetChanged();
+              listAdapter.notifyDataSetChanged();
+              adjustHeight();
+            }
           }
         });
 

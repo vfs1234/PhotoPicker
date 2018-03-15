@@ -34,6 +34,7 @@
         <activity
             android:theme="@style/customTheme"
             android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:screenOrientation="portrait"
             />
 
         <activity

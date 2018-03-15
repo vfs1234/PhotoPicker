@@ -54,9 +54,11 @@ public class MediaStoreHelper {
       PhotoDirectory photoDirectoryAll = new PhotoDirectory();
       photoDirectoryAll.setName(context.getString(R.string.__picker_all_image));
       photoDirectoryAll.setId("ALL");
-      data.moveToFirst();
-      while (data.moveToNext()) {
+//      data.move(-1);
 
+      boolean isFirst = data.moveToFirst();
+      while (isFirst || data.moveToNext()) {
+        isFirst = false;
         int imageId  = data.getInt(data.getColumnIndexOrThrow(_ID));
         String bucketId = data.getString(data.getColumnIndexOrThrow(BUCKET_ID));
         String name = data.getString(data.getColumnIndexOrThrow(BUCKET_DISPLAY_NAME));
